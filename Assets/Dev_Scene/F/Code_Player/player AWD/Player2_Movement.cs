@@ -6,7 +6,7 @@ public class Player2_Movement : Base_Player
 {
     void Update()
     {
-        MovementPlayer2();
+        MovementPlayer2AWD();
     }
 
 

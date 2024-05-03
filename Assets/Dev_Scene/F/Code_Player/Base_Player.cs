@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class Base_Player : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpForce = 10f;
-    private bool isGrounded;
-    private Rigidbody2D rb;
+    [SerializeField] protected float moveSpeed = 5f;
+    [SerializeField] protected float jumpForce = 10f;
+    protected bool isGrounded;
+    protected Rigidbody2D rb;
 
-    private GameObject playerSprite1;
-    private GameObject playerSprite2;
+    protected GameObject playerSprite1;
+    protected GameObject playerSprite2;
+
+    protected bool player1;
+    protected bool player2;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    protected virtual void MovementPlayer1()
+    protected virtual void MovementPlayerArrow()
     {
         playerSprite1 = GameObject.Find("Player1");
 
@@ -39,7 +42,7 @@ public class Base_Player : MonoBehaviour
         }
     }
 
-    public void MovementPlayer2()
+    protected void MovementPlayer2AWD()
     {
         playerSprite2 = GameObject.Find("Player2");
 
@@ -58,6 +61,19 @@ public class Base_Player : MonoBehaviour
         else if (move > 0)
         {
             playerSprite2.transform.localScale = new Vector3(1, 1, 1);
+        }
+    }
+
+    protected virtual void CheckPlayer()
+    {
+        if(player1 == true)
+        {
+            MovementPlayerArrow();
+        }
+
+        if(player2 == true)
+        {
+            MovementPlayer2AWD();
         }
     }
 

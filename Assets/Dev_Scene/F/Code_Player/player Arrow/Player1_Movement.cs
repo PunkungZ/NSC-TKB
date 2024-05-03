@@ -6,6 +6,6 @@ public class Player1_Movement : Base_Player
 {
     void Update()
     {
-        MovementPlayer1();
+        MovementPlayerArrow();
     }
 }
