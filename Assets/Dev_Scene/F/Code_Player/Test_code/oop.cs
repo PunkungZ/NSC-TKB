@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Base_Player : MonoBehaviour
+public class oop : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 10f;
@@ -10,21 +10,24 @@ public class Base_Player : MonoBehaviour
     private Rigidbody2D rb;
 
     private GameObject playerSprite1;
-    private GameObject playerSprite2;
+
+    private string w = "Horizontal1";
+    private string s = "Player1";
+    private string a = "Jump1";
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    protected virtual void MovementPlayer1()
+    private void MovementPlayer1()
     {
-        playerSprite1 = GameObject.Find("Player1");
+        playerSprite1 = GameObject.Find(s);
 
-        float move = Input.GetAxis("Horizontal1");
+        float move = Input.GetAxis(w);
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump1") && isGrounded)
+        if (Input.GetButtonDown(a) && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
@@ -36,28 +39,6 @@ public class Base_Player : MonoBehaviour
         else if (move > 0)
         {
             playerSprite1.transform.localScale = new Vector3(1, 1, 1);
-        }
-    }
-
-    public void MovementPlayer2()
-    {
-        playerSprite2 = GameObject.Find("Player2");
-
-        float move = Input.GetAxis("Horizontal2");
-        rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
-
-        if (Input.GetButtonDown("Jump2") && isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-
-        if (move < 0)
-        {
-            playerSprite2.transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (move > 0)
-        {
-            playerSprite2.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
