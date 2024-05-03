@@ -2,48 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Base_Player : MonoBehaviour
+public class Base_Player : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-    public float jumpForce = 10f;
-    protected bool isGrounded;
-    protected Rigidbody2D rb;
-    protected Transform playerSprite;
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float jumpForce = 10f;
+    private bool isGrounded;
+    private Rigidbody2D rb;
+    private GameObject playerSprite;
 
-    protected virtual void Start()
+    void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playerSprite = transform.Find("PlayerSprite");
+        playerSprite = GameObject.Find("Player1");
     }
 
-    protected abstract void HandleMovement();
-
-    protected void Update()
+    void Update()
     {
-        HandleMovement();
+        MovementPlayer();
     }
 
-    protected void MovementPlayer(string horizontalInput, string jumpInput)
+    private void MovementPlayer()
     {
-        float move = Input.GetAxis(horizontalInput);
+        float move = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
 
-        if (Input.GetButtonDown(jumpInput) && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
         if (move < 0)
         {
-            playerSprite.localScale = new Vector3(-1, 1, 1);
+            playerSprite.transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (move > 0)
         {
-            playerSprite.localScale = new Vector3(1, 1, 1);
+            playerSprite.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
-    protected void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))
         {
@@ -51,13 +49,11 @@ public abstract class Base_Player : MonoBehaviour
         }
     }
 
-    protected void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))
         {
             isGrounded = false;
         }
     }
-
 }
-
