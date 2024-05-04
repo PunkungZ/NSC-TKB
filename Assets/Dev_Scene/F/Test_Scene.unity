@@ -154,6 +154,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &503856930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 503856931}
+  m_Layer: 0
+  m_Name: Tranfrom_Fireball
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &503856931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503856930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.64, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2114572280}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &713106265
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +576,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 4437584797389309547, guid: fa37e423d035ed941ac08d43b5816d6c, type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4437584797389309550, guid: fa37e423d035ed941ac08d43b5816d6c, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -589,7 +624,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3935507993716194126, guid: fa37e423d035ed941ac08d43b5816d6c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fa37e423d035ed941ac08d43b5816d6c, type: 3}
 --- !u!1 &2049214386
 GameObject:
@@ -622,3 +658,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2114572276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2787867691826394706, guid: 1c17d611705991243a801fdad0b687e9, type: 3}
+  m_PrefabInstance: {fileID: 1411326193}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2114572277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114572276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e03badc259e4744db0994105cf1ca64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 10
+  bulletPrefab: {fileID: 2585633385014288591, guid: a7c6bc6138b321247a0df63e33bc6343, type: 3}
+  firePoint: {fileID: 503856931}
+  bulletSpeed: 20
+  fireRate: 0.5
+--- !u!4 &2114572280 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2787867691826394719, guid: 1c17d611705991243a801fdad0b687e9, type: 3}
+  m_PrefabInstance: {fileID: 1411326193}
+  m_PrefabAsset: {fileID: 0}

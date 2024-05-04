@@ -1,53 +1,33 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Select : MonoBehaviour
 {
-    public Ability ability;
-    float cooldownTime;
-    float activeTime;
+    public Fireball fireballSkillData;
+    protected Rigidbody2D rb;
 
-    enum AbilityState
+    private float lastUsedTime;
+
+    public bool CanUseSkill()
     {
-        ready,
-        active,
-        cooldown
+        return Time.time - lastUsedTime >= fireballSkillData.cooldown;
     }
-    AbilityState state = AbilityState.ready;
 
-    public KeyCode key;
-
-    public void Update()
+    public void UseSkill()
     {
-        switch (state)
+        if (CanUseSkill())
         {
-            case AbilityState.ready:
-                if (Input.GetKeyDown(key))
-                {
-                    ability.Activate();
-                    state = AbilityState.active;
-                    activeTime = ability.activeTime;
-                }
-                break;
-            case AbilityState.active:
-                if(activeTime > 0)
-                {
-                    activeTime -= Time.deltaTime;
-                }
-                else
-                {
-                    state = AbilityState.cooldown;
-                    cooldownTime = ability.cooldownTime;
-                }
-                break;
-            case AbilityState.cooldown:
-                break;
-        }
+            GameObject fireball = Instantiate(fireballSkillData.fireballPrefab, transform.position, transform.rotation);
+            Rigidbody rb = fireball.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.velocity = transform.forward * fireballSkillData.fireballSpeed;
+                rb.useGravity = false; // ไม่ให้ fireball ตกตามแรงโน้มถ่วง
+            }
 
-        if (Input.GetKeyDown(key))
-        {
-
+            lastUsedTime = Time.time;
         }
     }
+
 }
