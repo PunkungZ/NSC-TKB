@@ -14,10 +14,10 @@ public class Player1_Movement : Base_Player
     void Update()
     {
         MovementPlayerArrow();
-        ShootGun();
+        ShootFireball();
     }
 
-    private void ShootGun()
+    private void ShootFireball()
     {
         if (Input.GetKeyDown(KeyCode.L) && Time.time > nextFire)
         {
@@ -35,5 +35,4 @@ public class Player1_Movement : Base_Player
         rb.velocity = playerDirection * bulletSpeed;
         Destroy(bullet, 2f);
     }
-
 }

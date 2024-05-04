@@ -42,7 +42,7 @@ public class Base_Player : MonoBehaviour
         }
     }
 
-    protected void MovementPlayer2AWD()
+    protected virtual void MovementPlayer2AWD()
     {
         playerSprite2 = GameObject.Find("Player2");
 
