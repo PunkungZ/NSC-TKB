@@ -25,10 +25,12 @@ public class enemyPatrol : MonoBehaviour
         if(currentPoint == pointB.transform)
         {
             rb.velocity = new Vector2(speed, 0);
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
         else
         {
             rb.velocity = new Vector2(-speed, 0);
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }
 
         if(Vector2.Distance(transform.position, currentPoint.position) < 0.5f && currentPoint == pointB.transform)
@@ -39,6 +41,8 @@ public class enemyPatrol : MonoBehaviour
         {
             currentPoint = pointB.transform;
         }
+
+       
         
         
      
