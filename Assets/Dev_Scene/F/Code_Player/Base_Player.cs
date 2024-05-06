@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Base_Player : MonoBehaviour
@@ -83,7 +84,10 @@ public class Base_Player : MonoBehaviour
         {
             isGrounded = true;
         }
+        
     }
+
+    
 
     private void OnCollisionExit2D(Collision2D collision)
     {
@@ -91,5 +95,26 @@ public class Base_Player : MonoBehaviour
         {
             isGrounded = false;
         }
+        
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("enemy"))
+        {
+            moveSpeed = 2f; // ลดความเร็วเมื่อชนวัตถุ
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("enemy"))
+        {
+            moveSpeed = 5f; // กลับไปยังความเร็วเริ่มต้นเมื่อออกจากการชนวัตถุ
+        }
+    }
+
+
+
+
 }

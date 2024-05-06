@@ -8,6 +8,10 @@ public class Health : MonoBehaviour
     
     private bool dead;
 
+    private bool isdead;
+
+    public GameManagerScript gameManager;
+
     private void Awake()
     {
         currentHealth = startingHealth;
@@ -37,5 +41,14 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
     }
 
-    
+    private void Update()
+    {
+        if (currentHealth <= 0 && !isdead)
+        {
+            isdead = true;
+            gameManager.gameOver();             
+        }
+    }
+
+
 }
