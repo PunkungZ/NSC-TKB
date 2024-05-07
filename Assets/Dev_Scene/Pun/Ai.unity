@@ -542,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
+  sceneAnimator: {fileID: 0}
   gameManager: {fileID: 1896017527}
 --- !u!114 &383915255
 MonoBehaviour:
