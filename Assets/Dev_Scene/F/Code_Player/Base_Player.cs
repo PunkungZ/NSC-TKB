@@ -87,8 +87,6 @@ public class Base_Player : MonoBehaviour
         
     }
 
-    
-
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))
@@ -100,7 +98,7 @@ public class Base_Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("enemy"))
+        if (other.gameObject.CompareTag("trap"))
         {
             moveSpeed = 2f; // ลดความเร็วเมื่อชนวัตถุ
         }
@@ -108,13 +106,10 @@ public class Base_Player : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("enemy"))
+        if (other.gameObject.CompareTag("trap"))
         {
             moveSpeed = 5f; // กลับไปยังความเร็วเริ่มต้นเมื่อออกจากการชนวัตถุ
         }
     }
-
-
-
 
 }
