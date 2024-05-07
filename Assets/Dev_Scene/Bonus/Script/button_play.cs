@@ -17,4 +17,8 @@ public class button_play : MonoBehaviour
     {
         SceneManager.LoadSceneAsync(5);
     }   
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
