@@ -1,4 +1,4 @@
-
+﻿
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -9,8 +9,12 @@ public class Health : MonoBehaviour
     private bool dead;
 
     private bool isdead;
+    public Animator sceneAnimator;
+
 
     public GameManagerScript gameManager;
+
+    
 
     private void Awake()
     {
@@ -35,6 +39,7 @@ public class Health : MonoBehaviour
                 dead = true;
             }
         }
+        
     }
     public void AddHealth(float _value)
     {
@@ -46,9 +51,11 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0 && !isdead)
         {
             isdead = true;
-            gameManager.gameOver();             
+            gameManager.gameOver();
+            
         }
     }
 
+    
 
 }

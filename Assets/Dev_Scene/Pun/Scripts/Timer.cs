@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -30,6 +30,7 @@ public class Timer : MonoBehaviour
         {
             isdead = true;
             gameManager.gameOver();
+            
         }
         int minutes = Mathf.FloorToInt(reminingTime / 60);
         int seconds = Mathf.FloorToInt(reminingTime % 60);
@@ -39,6 +40,8 @@ public class Timer : MonoBehaviour
     public void gameOver()
     {
         gameOverUI.SetActive(true);
+        Destroy(gameObject); // ทำลายเกมออบเจ็กต์ของผู้เล่นเมื่อตาย
+        Application.Quit(); // หยุดเกม
     }
 
 
