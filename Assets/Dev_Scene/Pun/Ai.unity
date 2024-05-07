@@ -11670,6 +11670,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1341420040}
   reminingTime: 180
+  gameManager: {fileID: 1896017527}
+  gameOverUI: {fileID: 1084925127}
 --- !u!1 &1757996648
 GameObject:
   m_ObjectHideFlags: 0
@@ -11714,8 +11716,8 @@ GameObject:
   - component: {fileID: 1793952015}
   - component: {fileID: 1793952014}
   m_Layer: 0
-  m_Name: Spikes
-  m_TagString: enemy
+  m_Name: Traps
+  m_TagString: trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
