@@ -21,4 +21,8 @@ public class button_play : MonoBehaviour
     {
         Application.Quit();
     }
+    public void station1() 
+    {
+        SceneManager.LoadScene("Ai");
+    }
 }

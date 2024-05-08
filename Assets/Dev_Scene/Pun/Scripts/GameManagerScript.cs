@@ -31,7 +31,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void mainmenu() 
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("UI-start");
     }
 
     public void leave() 
