@@ -11,6 +11,8 @@ public class Fireball2 : MonoBehaviour
     public float fireRate = 0.5f;
     private float nextFire = 0f;
 
+    
+
     private void Update()
     {
         ShootFireball();
@@ -34,4 +36,7 @@ public class Fireball2 : MonoBehaviour
         rb.velocity = playerDirection * bulletSpeed;
         Destroy(bullet, 2f);
     }
+
+   
+
 }
