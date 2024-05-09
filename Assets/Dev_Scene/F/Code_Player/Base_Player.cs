@@ -10,8 +10,8 @@ public class Base_Player : MonoBehaviour
     protected bool isGrounded;
     protected Rigidbody2D rb;
 
-    protected GameObject playerSprite1;
-    protected GameObject playerSprite2;
+    [SerializeField] protected GameObject playerSprite1;
+    [SerializeField] protected GameObject playerSprite2;
 
     protected bool player1;
     protected bool player2;
