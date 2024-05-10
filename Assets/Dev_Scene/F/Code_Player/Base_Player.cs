@@ -28,7 +28,7 @@ public class Base_Player : MonoBehaviour
         float move = Input.GetAxis("Horizontal1");
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump1") && isGrounded)
+        if (Input.GetButtonDown("Jump1") && isGrounded ) 
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
@@ -50,7 +50,7 @@ public class Base_Player : MonoBehaviour
         float move = Input.GetAxis("Horizontal2");
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
 
-        if (Input.GetButtonDown("Jump2") && isGrounded)
+        if (Input.GetButtonDown("Jump2") && isGrounded )
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }

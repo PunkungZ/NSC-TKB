@@ -27,11 +27,13 @@ public class GameManagerScript : MonoBehaviour
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
     }
 
     public void mainmenu() 
     {
         SceneManager.LoadScene("UI-start");
+        Time.timeScale = 1f;
     }
 
     public void leave() 

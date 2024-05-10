@@ -6,12 +6,13 @@ public class Health : MonoBehaviour
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
     
+
     private bool dead;
 
     private bool isdead;
     public Animator sceneAnimator;
 
-
+    
     public GameManagerScript gameManager;
 
     
@@ -51,6 +52,9 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0 && !isdead)
         {
             isdead = true;
+            
+            Time.timeScale = 0f; // หยุดการเล่นของเกม
+            Debug.Log("Game Over");
             gameManager.gameOver();
             
         }

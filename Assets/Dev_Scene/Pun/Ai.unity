@@ -287,6 +287,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 2585633385014288591, guid: a7c6bc6138b321247a0df63e33bc6343, type: 3}
   firePoint: {fileID: 1041279092}
+  thrust: 2
+  knockTime: 0.2
   bulletSpeed: 20
   fireRate: 0.5
 --- !u!1 &278072268
@@ -579,6 +581,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpForce: 10
+  playerSprite1: {fileID: 0}
+  playerSprite2: {fileID: 0}
 --- !u!1 &396224178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,6 +1396,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5964284288291637273, guid: fb6f7f5d088e4a3499b24f8549fd39ea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964284288291637274, guid: fb6f7f5d088e4a3499b24f8549fd39ea, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5964284289146869070, guid: fb6f7f5d088e4a3499b24f8549fd39ea, type: 3}
