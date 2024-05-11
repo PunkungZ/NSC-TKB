@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,8 +12,6 @@ public class Fireball2 : MonoBehaviour
     public float bulletSpeed = 20f;
     public float fireRate = 0.5f;
     private float nextFire = 0f;
-
-    
 
     private void Update()
     {
