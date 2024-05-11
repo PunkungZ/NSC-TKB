@@ -29,6 +29,8 @@ public class Timer : MonoBehaviour
         if (reminingTime <= 0 && !isdead)
         {
             isdead = true;
+            Time.timeScale = 0f; // หยุดการเล่นของเกม
+            Debug.Log("Game Over");
             gameManager.gameOver();
             
         }
