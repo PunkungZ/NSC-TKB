@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Dev_Scene/Bonus/Scene/UI-map.unity
     guid: 5cb76a73eccc72143b916f448a3bc6b6
   - enabled: 1
-    path: Assets/Dev_Scene/Bonus/Scene/UI-setting.unity
+    path: Assets/Dev_Scene/Bonus/Scene/UI Character.unity
     guid: d1cd80e7c96d5ff49b6408a179fcb741
   - enabled: 1
     path: Assets/Dev_Scene/Bonus/Scene/Credit.unity
