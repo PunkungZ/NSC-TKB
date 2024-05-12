@@ -43739,6 +43739,7 @@ MonoBehaviour:
   playerSprite1: {fileID: 0}
   playerSprite2: {fileID: 0}
   animator: {fileID: 1910014299}
+  AnimationDragon: {fileID: 1910014299}
 --- !u!1 &1934765906
 GameObject:
   m_ObjectHideFlags: 0
