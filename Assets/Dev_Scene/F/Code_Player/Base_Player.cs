@@ -8,86 +8,14 @@ public class Base_Player : MonoBehaviour
     [SerializeField] protected float moveSpeed = 5f;
     [SerializeField] protected float jumpForce = 10f;
 
-    float horizontalMove = 0f;
-    bool jump = false;
-
     protected bool isGrounded;
     protected Rigidbody2D rb;
-
-    [SerializeField] protected GameObject playerSprite1;
-    [SerializeField] protected GameObject playerSprite2;
-
-    protected bool player1;
-    protected bool player2;
-
-    
-    public Animator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    protected virtual void MovementPlayerArrow()
-    {
-        playerSprite1 = GameObject.Find("Player1");
-
-        float move = Input.GetAxis("Horizontal1");
-        rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
-
-        if (Input.GetButtonDown("Jump1") && isGrounded ) 
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        }
-
-        if (move < 0)
-        {
-            playerSprite1.transform.localScale = new Vector3(-1, 1, 1);
-        }
-        else if (move > 0)
-        {
-            playerSprite1.transform.localScale = new Vector3(1, 1, 1);
-        }
-    }
-
-    protected virtual void MovementPlayer2AWD()
-    {
-        playerSprite2 = GameObject.Find("Player2");
-
-        float move = Input.GetAxis("Horizontal2");
-        rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-
-        if (Input.GetButtonDown("Jump2") && isGrounded )
-        {
-            jump = true;
-            animator.SetBool("IsJumping", true);
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-
-        }
-
-        if (move < 0)
-        {
-            playerSprite2.transform.localScale = new Vector3(1, 1, 1);
-        }
-        else if (move > 0)
-        {
-            playerSprite2.transform.localScale = new Vector3(-1, 1, 1);
-        }
-    }
-
-    protected virtual void CheckPlayer()
-    {
-        if(player1 == true)
-        {
-            MovementPlayerArrow();
-        }
-
-        if(player2 == true)
-        {
-            MovementPlayer2AWD();
-        }
-    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -95,7 +23,6 @@ public class Base_Player : MonoBehaviour
         {
             isGrounded = true;
         }
-        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -104,14 +31,13 @@ public class Base_Player : MonoBehaviour
         {
             isGrounded = false;
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("trap"))
         {
-            moveSpeed = 2f; // ลดความเร็วเมื่อชนวัตถุ
+            moveSpeed = 2f;
         }
     }
 
@@ -119,14 +45,8 @@ public class Base_Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("trap"))
         {
-            moveSpeed = 5f; // กลับไปยังความเร็วเริ่มต้นเมื่อออกจากการชนวัตถุ
+            moveSpeed = 5f;
         }
     }
-
-    public void OnLanding()
-    {
-        animator.SetBool("IsJumping", false);
-    }
-
     
 }
