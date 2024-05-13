@@ -7,6 +7,10 @@ public class Base_Player : MonoBehaviour
 {
     [SerializeField] protected float moveSpeed = 5f;
     [SerializeField] protected float jumpForce = 10f;
+
+    float horizontalMove = 0f;
+    bool jump = false;
+
     protected bool isGrounded;
     protected Rigidbody2D rb;
 
@@ -15,6 +19,9 @@ public class Base_Player : MonoBehaviour
 
     protected bool player1;
     protected bool player2;
+
+    
+    public Animator animator;
 
     void Start()
     {
@@ -49,19 +56,23 @@ public class Base_Player : MonoBehaviour
 
         float move = Input.GetAxis("Horizontal2");
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
         if (Input.GetButtonDown("Jump2") && isGrounded )
         {
+            jump = true;
+            animator.SetBool("IsJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
         }
 
         if (move < 0)
         {
-            playerSprite2.transform.localScale = new Vector3(-1, 1, 1);
+            playerSprite2.transform.localScale = new Vector3(1, 1, 1);
         }
         else if (move > 0)
         {
-            playerSprite2.transform.localScale = new Vector3(1, 1, 1);
+            playerSprite2.transform.localScale = new Vector3(-1, 1, 1);
         }
     }
 
@@ -112,4 +123,10 @@ public class Base_Player : MonoBehaviour
         }
     }
 
+    public void OnLanding()
+    {
+        animator.SetBool("IsJumping", false);
+    }
+
+    
 }
