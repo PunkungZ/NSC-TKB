@@ -9,19 +9,10 @@ public class PlayerArrow_Movement : Base_Player
     private void Update()
     {
         MovementPlayerArrow();
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, rb.velocity, 1f); // ตรวจสอบการชนในทิศทางที่ตัวละครกำลังเคลื่อนที่
-
-        if (hit.collider != null && hit.collider.CompareTag("enemy")) // ถ้าชนกับมอนสเตอร์
-        {
-            Vector2 reflectedDirection = Vector2.Reflect(rb.velocity, hit.normal); // คำนวณทิศทางที่ถูกสะท้อนกลับ
-            rb.velocity = reflectedDirection.normalized * moveSpeed; // ตั้งค่าทิศทางเดินใหม่
-        }
     }
 
     protected virtual void MovementPlayerArrow()
     {
-        playerSprite1 = GameObject.Find("Player1");
-
         float move = Input.GetAxis("Horizontal1");
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
 

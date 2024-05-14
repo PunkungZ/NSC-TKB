@@ -17,27 +17,23 @@ public class PlayerAWD_Movement : Base_Player
 
     protected virtual void MovementPlayer2AWD()
     {
-        playerSprite2 = GameObject.Find("Player2");
-
         float move = Input.GetAxis("Horizontal2");
         rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
 
         if (Input.GetButtonDown("Jump2") && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-
         }
 
         if (move < 0)
         {
-            playerSprite2.transform.localScale = new Vector3(1, 1, 1);
+            playerSprite2.transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (move > 0)
         {
-            playerSprite2.transform.localScale = new Vector3(-1, 1, 1);
+            playerSprite2.transform.localScale = new Vector3(1, 1, 1);
         }
     }
-
 
     private void Animation()
     {
@@ -71,7 +67,7 @@ public class PlayerAWD_Movement : Base_Player
         }
 
         /////////////////////////////////////////////พ่นไฟ
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             AnimationDragon.SetTrigger("IsSpewFireball");
         }
