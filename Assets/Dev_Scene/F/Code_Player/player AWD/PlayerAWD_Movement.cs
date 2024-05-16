@@ -12,7 +12,6 @@ public class PlayerAWD_Movement : Base_Player
     {
         MovementPlayer2AWD();
         Animation();
-
     }
 
     protected virtual void MovementPlayer2AWD()
