@@ -4,11 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class button_play : MonoBehaviour
+
 {
+    [SerializeField] Animator transitionAnim;
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(1);
+        StartCoroutine(Loadlevel1());
+
     }   
+
+    IEnumerator Loadlevel1()
+    {
+        transitionAnim.SetTrigger("End");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadSceneAsync(1);
+        transitionAnim.SetTrigger("Start");
+    }
     public void PlayGamesetting()
     {
         SceneManager.LoadSceneAsync(2);
