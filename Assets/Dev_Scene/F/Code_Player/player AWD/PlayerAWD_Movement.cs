@@ -26,11 +26,11 @@ public class PlayerAWD_Movement : Base_Player
 
         if (move < 0)
         {
-            playerSprite2.transform.localScale = new Vector3(-1, 1, 1);
+            playerSprite2.transform.localScale = new Vector3(-0.5741891f, 0.5741891f, 0.5741891f);
         }
         else if (move > 0)
         {
-            playerSprite2.transform.localScale = new Vector3(1, 1, 1);
+            playerSprite2.transform.localScale = new Vector3(0.5741891f, 0.5741891f, 0.5741891f);
         }
     }
 
