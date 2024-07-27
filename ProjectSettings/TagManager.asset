@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - trap
   - Bullet
+  - Monster
   layers:
   - Default
   - TransparentFX

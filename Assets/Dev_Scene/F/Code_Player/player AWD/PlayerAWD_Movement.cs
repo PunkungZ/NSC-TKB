@@ -8,6 +8,8 @@ public class PlayerAWD_Movement : Base_Player
 
     [SerializeField] protected GameObject playerSprite2;
 
+
+
     private void Update()
     {
         MovementPlayer2AWD();
