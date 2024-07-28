@@ -7,7 +7,7 @@ public class button_play : MonoBehaviour
 
 {
     [SerializeField] Animator transitionAnim;
-    public void PlayGame()
+    public void PlayGamest()
     {
         StartCoroutine(Loadlevel1());
 
@@ -20,14 +20,14 @@ public class button_play : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
         transitionAnim.SetTrigger("Start");
     }
-    public void PlayGamesetting()
-    {
-        SceneManager.LoadSceneAsync(2);
-    }
+    //public void PlayGamesetting()
+    //{
+        //SceneManager.LoadSceneAsync(2);
+    //}
     
-    public void PlayGamecreit()
+    public void PlayGames()
     {
-        SceneManager.LoadSceneAsync(3);
+        SceneManager.LoadSceneAsync("cutscene");
     }  
     
     public void Exit()
@@ -37,7 +37,7 @@ public class button_play : MonoBehaviour
 
     public void station1() 
     {
-        SceneManager.LoadScene("Ai");
+        SceneManager.LoadScene("Map Complete");
     }
 
     public void exit()
