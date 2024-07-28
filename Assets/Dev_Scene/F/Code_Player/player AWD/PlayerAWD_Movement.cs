@@ -65,7 +65,6 @@ public class PlayerAWD_Movement : Base_Player
 
     }
 
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))
