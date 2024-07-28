@@ -14337,6 +14337,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.009401036
       objectReference: {fileID: 0}
+    - target: {fileID: 7645294060101395095, guid: 07a6cadca5bbea442937031120f99342, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a6cadca5bbea442937031120f99342, type: 3}
 --- !u!1 &1333805860 stripped
@@ -15629,7 +15633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 15
-  jumpForce: 8
+  jumpForce: 40
   cm: {fileID: 1107399372}
   AnimationDragon: {fileID: 1459423305}
   playerSprite2: {fileID: 1459423300}
@@ -17108,7 +17112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 51.4, y: -38.8}
+  m_AnchoredPosition: {x: 51.4, y: -38.80005}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1560812044
@@ -22514,6 +22518,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 43078336559458350, guid: 16dd534f38a90a843bae49535a0fbd45, type: 3}
+      propertyPath: m_GravityScale
+      value: 9.8
+      objectReference: {fileID: 0}
     - target: {fileID: 43078336559458351, guid: 16dd534f38a90a843bae49535a0fbd45, type: 3}
       propertyPath: fireRate
       value: 2
@@ -23231,6 +23239,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 651612033598408500, guid: d572fff88313b684b8588c13c4c4bbf7, type: 3}
+      propertyPath: m_GravityScale
+      value: 9.8
+      objectReference: {fileID: 0}
     - target: {fileID: 651612033598408503, guid: d572fff88313b684b8588c13c4c4bbf7, type: 3}
       propertyPath: m_Name
       value: Tepee
@@ -23283,6 +23295,10 @@ PrefabInstance:
       propertyPath: cm
       value: 
       objectReference: {fileID: 1107399372}
+    - target: {fileID: 651612033598408510, guid: d572fff88313b684b8588c13c4c4bbf7, type: 3}
+      propertyPath: jumpForce
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 651612033598408510, guid: d572fff88313b684b8588c13c4c4bbf7, type: 3}
       propertyPath: moveSpeed
       value: 10
