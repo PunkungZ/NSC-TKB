@@ -45,9 +45,9 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // ฟังก์ชันตรวจจับการชนกับมอนสเตอร์
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Monster"))
+        if (other.gameObject.CompareTag("Monster"))
         {
             TakeDamage(35); // กำหนดดาเมจที่ได้รับเมื่อชนกับมอนสเตอร์
         }
