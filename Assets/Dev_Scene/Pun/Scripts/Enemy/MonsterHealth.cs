@@ -1,20 +1,21 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MonsterHealth : MonoBehaviour
 {
-    public float maxHealth = 100f;
-    private float currentHealth;
-  
+    public int maxHP = 100;
+    private int currentHP;
 
-    private void Start()
+    void Start()
     {
-        currentHealth = maxHealth;
+        currentHP = maxHP;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        currentHP -= damage;
+        Debug.Log("Monster HP: " + currentHP);
+
+        if (currentHP <= 0)
         {
             Die();
         }
@@ -22,6 +23,7 @@ public class MonsterHealth : MonoBehaviour
 
     void Die()
     {
+        // ทำสิ่งที่ต้องการเมื่อมอนสเตอร์ตาย
         Destroy(gameObject);
     }
 }

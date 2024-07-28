@@ -9,6 +9,7 @@ TagManager:
   - trap
   - Bullet
   - Monster
+  - Coin
   layers:
   - Default
   - TransparentFX

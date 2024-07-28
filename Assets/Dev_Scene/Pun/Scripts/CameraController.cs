@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform target;
+    public Transform target2;
     public Vector3 posOffset;
     public float smooth;
 
@@ -15,5 +16,6 @@ public class CameraController : MonoBehaviour
         //transform.position = Vector3.Lerp(transform.position, target.position + posOffset, smooth * Time.deltaTime);
 
         transform.position = Vector3.SmoothDamp(transform.position, target.position + posOffset, ref velocity, smooth);
+        transform.position = Vector3.SmoothDamp(transform.position, target2.position + posOffset, ref velocity, smooth);
     }
 }

@@ -2,7 +2,7 @@
 
 public class PlayerShoot : MonoBehaviour
 {
-    public float damage = 20f;
+    public float damage = 50f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

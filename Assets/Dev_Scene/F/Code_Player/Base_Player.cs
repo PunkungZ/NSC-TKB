@@ -13,6 +13,7 @@ public class Base_Player : MonoBehaviour
 
     protected bool isGrounded;
     protected Rigidbody2D rb;
+    public CoinManager cm;
 
     void Start()
     {
@@ -48,6 +49,12 @@ public class Base_Player : MonoBehaviour
         {
             moveSpeed = 2f;
         }
+
+        if (other.gameObject.CompareTag("Coin")) 
+        {
+            Destroy(other.gameObject);
+            cm.coinCount++;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -57,5 +64,7 @@ public class Base_Player : MonoBehaviour
             moveSpeed = 5f;
         }
     }
+
     
+
 }

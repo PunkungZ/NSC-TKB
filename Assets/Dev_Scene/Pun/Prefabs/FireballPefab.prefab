@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 317158959352326348}
   - component: {fileID: 3494196452214620632}
   - component: {fileID: 4345288968940453068}
+  - component: {fileID: 7188166823460123485}
   m_Layer: 1
   m_Name: FireballPefab
   m_TagString: Untagged
@@ -235,3 +236,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifetime: 5
+--- !u!114 &7188166823460123485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7428206388594378426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa7dada87d85784d978faa1a5d13187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
