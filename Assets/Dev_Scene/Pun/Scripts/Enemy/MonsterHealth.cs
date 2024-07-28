@@ -2,20 +2,18 @@
 
 public class MonsterHealth : MonoBehaviour
 {
-    public int maxHP = 100;
-    private int currentHP;
+    public float maxHealth = 100f;
+    private float currentHealth;
 
     void Start()
     {
-        currentHP = maxHP;
+        currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float amount)
     {
-        currentHP -= damage;
-        Debug.Log("Monster HP: " + currentHP);
-
-        if (currentHP <= 0)
+        currentHealth -= amount;
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -23,7 +21,7 @@ public class MonsterHealth : MonoBehaviour
 
     void Die()
     {
-        // ทำสิ่งที่ต้องการเมื่อมอนสเตอร์ตาย
         Destroy(gameObject);
     }
+
 }

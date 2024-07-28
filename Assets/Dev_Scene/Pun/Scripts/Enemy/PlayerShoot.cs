@@ -6,12 +6,14 @@ public class PlayerShoot : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Monster monster = collision.GetComponent<Monster>();
+        MonsterHealth monster = collision.GetComponent<MonsterHealth>();
         if (monster != null)
         {
+            monster.TakeDamage(damage);
             Vector2 direction = (transform.position - collision.transform.position).normalized;
             GetComponent<Rigidbody2D>().velocity = direction * 5f; // ตั้งค่าความเร็วของมอนสเตอร์ให้มันเด้งกลับ
             Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }
