@@ -8,6 +8,8 @@ public class PlayerAWD_Movement : Base_Player
 
     [SerializeField] protected GameObject playerSprite2;
 
+
+
     private void Update()
     {
         MovementPlayer2AWD();
@@ -55,16 +57,6 @@ public class PlayerAWD_Movement : Base_Player
             AnimationDragon.SetBool("IsWalking", false);
         }
 
-        /////////////////////////////////////////////////////////กระโดด
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            AnimationDragon.SetBool("IsJumping", true);
-        }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            AnimationDragon.SetBool("IsJumping", false);
-        }
-
         /////////////////////////////////////////////พ่นไฟ
         if (Input.GetKeyDown(KeyCode.L))
         {
@@ -73,5 +65,22 @@ public class PlayerAWD_Movement : Base_Player
 
     }
 
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            isGrounded = true;
+            AnimationDragon.SetBool("IsJumping", false);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Ground"))
+        {
+            isGrounded = false;
+            AnimationDragon.SetBool("IsJumping", true);
+        }
+    }
+
 }

@@ -7,6 +7,9 @@ public class Base_Player : MonoBehaviour
 {
     [SerializeField] protected float moveSpeed = 5f;
     [SerializeField] protected float jumpForce = 10f;
+    
+
+    
 
     protected bool isGrounded;
     protected Rigidbody2D rb;
@@ -14,9 +17,15 @@ public class Base_Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
-
+    
+    
+    
+   
+        
+        
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))

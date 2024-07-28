@@ -154,10 +154,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1SpawnPoint: {fileID: 1597806920}
   player2SpawnPoint: {fileID: 1175710870}
-  characterPrefabs:
-  - {fileID: 4328071431237453301, guid: 31b43803bcd18694cab8964697dbee74, type: 3}
-  - {fileID: 8296705825756868108, guid: d0591252b47e3d3458e58388c9469ec0, type: 3}
-  - {fileID: 8181853726024358620, guid: 9ca2ba05cc9946344a5f91a7b6c633a1, type: 3}
+  player1Prefabs:
+  - {fileID: 8178460925327579561, guid: 3605e1f4ed5d0a143b9519c0ad766601, type: 3}
+  - {fileID: 8596787403564061163, guid: 00c7d4dba1e46d9408159bd9c7b8c76e, type: 3}
+  - {fileID: 5451480651282625260, guid: c54e25dc9e1e69240a2a133b8060d15a, type: 3}
+  player2Prefabs:
+  - {fileID: 3149832409384327721, guid: a59393985bc528a4aaa637a49b663d12, type: 3}
+  - {fileID: 8148742032373992357, guid: 5dc5f9cb0218f3842ac04d40691f4266, type: 3}
+  - {fileID: 4872768566843710050, guid: 2d0c13201476f3247a55750fc4af07ed, type: 3}
 --- !u!4 &224585634
 Transform:
   m_ObjectHideFlags: 0
@@ -304,7 +308,7 @@ GameObject:
   - component: {fileID: 963961985}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

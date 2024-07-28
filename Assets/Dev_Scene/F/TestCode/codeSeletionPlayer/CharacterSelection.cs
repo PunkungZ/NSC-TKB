@@ -9,32 +9,36 @@ public class CharacterSelection : MonoBehaviour
     public Image player1Image;
     public Image player2Image;
 
+    public Sprite[] player1CharacterSprites;
+    public Sprite[] player2CharacterSprites;
+
+    public GameObject[] player1Prefabs;
+    public GameObject[] player2Prefabs;
+
+    private int player1Index;
+    private int player2Index;
+
     public string GameScene;
-
-    public Sprite[] characterSprites;
-
-    private int player1Index = 0;
-    private int player2Index = 0;
 
     public void Start()
     {
-        player1Index = Random.Range(0, characterSprites.Length);
+        // สุ่มตัวละครที่ไม่ซ้ำกันสำหรับผู้เล่น 1 และผู้เล่น 2
+        player1Index = Random.Range(0, player1CharacterSprites.Length);
         do
         {
-            player2Index = Random.Range(0, characterSprites.Length);
-        } while (player2Index == player1Index);
+            player2Index = Random.Range(0, player2CharacterSprites.Length);
+        } while (player2CharacterSprites[player2Index] == player1CharacterSprites[player1Index]);
 
         UpdatePlayer1Character();
         UpdatePlayer2Character();
     }
 
-
     public void OnPlayer1Next()
     {
-        int newIndex = (player1Index + 1) % characterSprites.Length;
-        if (newIndex == player2Index)
+        int newIndex = (player1Index + 1) % player1CharacterSprites.Length;
+        if (player2CharacterSprites[player2Index] == player1CharacterSprites[newIndex])
         {
-            newIndex = (newIndex + 1) % characterSprites.Length;
+            newIndex = (newIndex + 1) % player1CharacterSprites.Length;
         }
         player1Index = newIndex;
         UpdatePlayer1Character();
@@ -42,10 +46,10 @@ public class CharacterSelection : MonoBehaviour
 
     public void OnPlayer1Previous()
     {
-        int newIndex = (player1Index - 1 + characterSprites.Length) % characterSprites.Length;
-        if (newIndex == player2Index)
+        int newIndex = (player1Index - 1 + player1CharacterSprites.Length) % player1CharacterSprites.Length;
+        if (player2CharacterSprites[player2Index] == player1CharacterSprites[newIndex])
         {
-            newIndex = (newIndex - 1 + characterSprites.Length) % characterSprites.Length;
+            newIndex = (newIndex - 1 + player1CharacterSprites.Length) % player1CharacterSprites.Length;
         }
         player1Index = newIndex;
         UpdatePlayer1Character();
@@ -53,10 +57,10 @@ public class CharacterSelection : MonoBehaviour
 
     public void OnPlayer2Next()
     {
-        int newIndex = (player2Index + 1) % characterSprites.Length;
-        if (newIndex == player1Index)
+        int newIndex = (player2Index + 1) % player2CharacterSprites.Length;
+        if (player2CharacterSprites[newIndex] == player1CharacterSprites[player1Index])
         {
-            newIndex = (newIndex + 1) % characterSprites.Length;
+            newIndex = (newIndex + 1) % player2CharacterSprites.Length;
         }
         player2Index = newIndex;
         UpdatePlayer2Character();
@@ -64,10 +68,10 @@ public class CharacterSelection : MonoBehaviour
 
     public void OnPlayer2Previous()
     {
-        int newIndex = (player2Index - 1 + characterSprites.Length) % characterSprites.Length;
-        if (newIndex == player1Index)
+        int newIndex = (player2Index - 1 + player2CharacterSprites.Length) % player2CharacterSprites.Length;
+        if (player2CharacterSprites[newIndex] == player1CharacterSprites[player1Index])
         {
-            newIndex = (newIndex - 1 + characterSprites.Length) % characterSprites.Length;
+            newIndex = (newIndex - 1 + player2CharacterSprites.Length) % player2CharacterSprites.Length;
         }
         player2Index = newIndex;
         UpdatePlayer2Character();
@@ -75,12 +79,12 @@ public class CharacterSelection : MonoBehaviour
 
     private void UpdatePlayer1Character()
     {
-        player1Image.sprite = characterSprites[player1Index];
+        player1Image.sprite = player1CharacterSprites[player1Index];
     }
 
     private void UpdatePlayer2Character()
     {
-        player2Image.sprite = characterSprites[player2Index];
+        player2Image.sprite = player2CharacterSprites[player2Index];
     }
 
     public void OnPlayButton()
@@ -88,6 +92,10 @@ public class CharacterSelection : MonoBehaviour
         // Save selected characters
         PlayerPrefs.SetInt("Player1Character", player1Index);
         PlayerPrefs.SetInt("Player2Character", player2Index);
+
+        // Save the prefabs as well
+        PlayerPrefs.SetString("Player1Prefab", player1Prefabs[player1Index].name);
+        PlayerPrefs.SetString("Player2Prefab", player2Prefabs[player2Index].name);
 
         // Load the next scene
         SceneManager.LoadScene(GameScene);
